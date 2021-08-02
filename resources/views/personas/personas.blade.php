@@ -20,7 +20,8 @@
                   Personas
                 </div>
                 <div class="col-sm-12">
-                    <form class="col-sm-12">
+                    <form class="col-sm-12" action="personas" method="post">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <div class="form-group col-sm-8">
                         <label for="NameInput">Nombre</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
@@ -82,11 +83,13 @@
                                   <td>{{$p -> postal_code}}</td>
                                   <td>{{$p -> direction}}</td>
                                   <td><form action="editar_persona">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="button" value="Edit" class="btn btn-info">
                                         <input type="hidden" value="{{$p -> id}}">
                                       </form>
                                   </td>
                                   <td><form action="eliminar_persona">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="button" value="Elim" class="btn btn-danger">
                                         <input type="hidden" value="{{$p -> id}}">
                                       </form></td>
