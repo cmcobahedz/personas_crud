@@ -16,9 +16,12 @@ use App\Http\Controllers\PersonaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect('/personas');
 });
 
 Route::get('personas', [PersonaController:: class, 'index']);
 Route::get('personas/{id}', [PersonaController:: class, 'show']);
 Route::post('personas', [PersonaController:: class, 'store']);
+Route::put('edit_persona/{id}', [PersonaController:: class, 'update']);
+Route::post('delete_persona', [PersonaController:: class, 'delete']);
